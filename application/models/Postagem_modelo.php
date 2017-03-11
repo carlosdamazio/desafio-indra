@@ -1,5 +1,6 @@
 <?php
-
+	/*Modelo da postagem, onde são inclusos os métodos para as operações de
+	  CRUD e os recursos necessários.*/
 	class Postagem_modelo extends CI_Model{
 		public function __construct(){
 			$this->load->database();

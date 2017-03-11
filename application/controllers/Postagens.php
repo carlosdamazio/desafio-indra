@@ -1,6 +1,9 @@
 <?php
-
+/*Controlador para as postagens, nele está contido
+  os recursos para acessarem os métodos do modelo da postagem.
+  Assim, pode-se realizar as operações de CRUD.*/
 	class Postagens extends CI_Controller{
+		/*Função de index das postagens*/
 		public function index(){
 
 			$data['title'] = 'Últimas postagens';
@@ -13,7 +16,7 @@
 			$this->load->view('templates/rodape');
 		
 		}
-
+		/*Função de visualização das postagens*/
 		public function view($url_post = NULL){
 			$data['tb_postagem'] = $this->postagem_modelo->get_postagem($url_post);
 
@@ -27,7 +30,7 @@
 			$this->load->view('postagens/view', $data);
 			$this->load->view('templates/rodape');
 		}
-
+		/*Função de criação das postagens*/
 		public function create(){
 			$data['title'] = 'Criar postagem';
 
@@ -43,12 +46,12 @@
 				redirect('postagens');
 			}
 		}
-	
+		/*Função de exclusão das postagens*/
 		public function delete($idt_postagem){
 			$this->postagem_modelo->delete($idt_postagem);
 			redirect('postagens');
 		}
-
+		/*Função de edição e atualização das postagens*/
 		public function edit($url_post){
 			$data['tb_postagem'] = $this->postagem_modelo->get_postagem($url_post);
 
